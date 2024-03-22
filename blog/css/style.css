@@ -31,10 +31,72 @@ a:hover{
 header{
     position: relative;
     padding: 0 2rem;
+    background: none;
 }
 
 .navbar{
     width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar.logo a{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle_btn{
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+.drpdown_menu{
+    display: none;
+    position: absolute;
+    right: 2em;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.drpdown_menu .open{
+    height: 240px;
+}
+
+.drpdown_menu li{
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media(max-width: 992px){
+   .navbar .links {
+    display: none;
+   } 
+
+   .navbar .toggle_btn{
+    display: block;
+   }
+
+   .drpdown_menu {
+    display: block;
+   }
 }
 
 .container{
@@ -44,40 +106,3 @@ header{
     overflow: hidden;
 }
 
-.stars{
-    position: relative;
-    display: flex;
-
-}
-
-.stars span{
-    position: relative;
-    width: 20px;
-    height: 20px;
-    background: goldenrod;
-    margin: 0  4px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 10px #DAA52044,
-    0 0 50px goldenrod,
-    0 0 100px goldenrod;
-    animation: animate 15s linear infinite;
-    animation-duration: calc(125s / var(--i));
-}
-
-.stars span:nth-child(even){
-    background: #ff2d75;
-    box-shadow: 0 0 0 10px #ff2d7544,
-    0 0 50px #ff2d75,
-    0 0 100px #ff2d75;
-}
-
-@keyframes animate{
-    0%
-    {
-        transform: translateY(100vh) scale(0);
-    }
-    100%
-    {
-        transform: translateY(-10vh) scale(1);
-    }
-}
